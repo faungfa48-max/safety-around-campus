@@ -11,7 +11,7 @@ st.set_page_config(page_title="Campus Safety Dashboard", layout="wide", initial_
 @st.cache_data
 def load_data():
     file_path = "เก็บข้อมูล (3).xlsx"
-    xls = pd.ExcelFile(file_path)
+    xls = pd.ExcelFile(file_path, engine='openpyxl')
     all_dfs = []
     for sheet in xls.sheet_names:
         df = pd.read_excel(file_path, sheet_name=sheet, header=1)
